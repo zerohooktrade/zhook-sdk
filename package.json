@@ -1,0 +1,66 @@
+{
+  "name": "@zhooktrade/sdk",
+  "version": "0.1.0",
+  "description": "Best-price routing on Robinhood Chain: quotes across Uniswap v3, v4 and hooked pools, split routes, Universal Router + Permit2 calldata, hard limits, pinned code hashes and eth_call simulation.",
+  "license": "MIT",
+  "author": "Zerohook",
+  "type": "module",
+  "homepage": "https://zerohook.trade",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhooktrade/zhook-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhooktrade/zhook-sdk/issues"
+  },
+  "keywords": [
+    "zerohook",
+    "robinhood-chain",
+    "uniswap",
+    "uniswap-v4",
+    "hooks",
+    "universal-router",
+    "permit2",
+    "routing",
+    "viem"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:live": "vitest run test/live.test.ts"
+  },
+  "dependencies": {
+    "viem": "^2.57.11"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^10.7.0",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.63.0",
+    "vitest": "^4.1.10"
+  },
+  "packageManager": "pnpm@11.9.0"
+}
