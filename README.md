@@ -1,4 +1,4 @@
-# @zhooktrade/sdk
+# @zerohooktrade/sdk
 
 Best-price routing on **Robinhood Chain** (chain id 4663), extracted from the engine behind the [Zerohook](https://zerohook.trade) app.
 
@@ -11,12 +11,12 @@ Best-price routing on **Robinhood Chain** (chain id 4663), extracted from the en
 
 Read-only. The SDK never holds a key, signs or sends: it returns calldata for your own wallet to sign.
 
-Links: app [app.zerohook.trade](https://app.zerohook.trade) · docs [docs.zerohook.trade](https://docs.zerohook.trade) · site [zerohook.trade](https://zerohook.trade) (currently served at [preview.zerohook.trade](https://preview.zerohook.trade)).
+Links: app [dapp.zerohook.trade](https://dapp.zerohook.trade) · docs [docs.zerohook.trade](https://docs.zerohook.trade) · site [zerohook.trade](https://zerohook.trade).
 
 ## Install
 
 ```sh
-git clone https://github.com/zhooktrade/zhook-sdk.git
+git clone https://github.com/zerohooktrade/zhook-sdk.git
 cd zhook-sdk
 pnpm install
 pnpm build
@@ -25,7 +25,7 @@ pnpm build
 Then depend on it from a sibling project:
 
 ```json
-{ "dependencies": { "@zhooktrade/sdk": "file:../zhook-sdk" } }
+{ "dependencies": { "@zerohooktrade/sdk": "file:../zhook-sdk" } }
 ```
 
 Requires Node 20 or later. ESM only. [viem](https://viem.sh) is the only runtime dependency.
@@ -33,7 +33,7 @@ Requires Node 20 or later. ESM only. [viem](https://viem.sh) is the only runtime
 ## Usage
 
 ```ts
-import { createZhook, RHC } from "@zhooktrade/sdk";
+import { createZhook, RHC } from "@zerohooktrade/sdk";
 
 const zhook = createZhook(); // public RPCs; or createZhook({ rpcUrls: ["https://…"] })
 
@@ -96,7 +96,7 @@ await zhook.poolState(poolId); // live slot0, liquidity, token metadata
 The encoder is a pure function. Give it a route and it returns the exact `execute(commands, inputs, deadline)` calldata:
 
 ```ts
-import { buildExecute, poolIdOf, NATIVE, RHC } from "@zhooktrade/sdk";
+import { buildExecute, poolIdOf, NATIVE, RHC } from "@zerohooktrade/sdk";
 
 const key = { currency0: NATIVE, currency1: RHC.usdg, fee: 500, tickSpacing: 10, hooks: NATIVE };
 const { data, value, commands } = buildExecute({
@@ -120,7 +120,7 @@ v3 pools are resolved live from the factory for every fee tier. v4 pools are key
 - **Discovery**: `await zhook.discoverPools({ blocks: 20_000 })` scans recent PoolManager `Initialize` logs and adds what it finds. `registry.toRows()` gives compact rows to persist.
 
 ```ts
-import { createZhook, PoolRegistry } from "@zhooktrade/sdk";
+import { createZhook, PoolRegistry } from "@zerohooktrade/sdk";
 
 const registry = new PoolRegistry({ includeDefaults: true, pools: savedRows });
 const zhook = createZhook({ registry });

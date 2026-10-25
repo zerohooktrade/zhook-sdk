@@ -1,5 +1,5 @@
 {
-  "name": "@zhooktrade/sdk",
+  "name": "@zerohooktrade/sdk",
   "version": "0.1.0",
   "description": "Best-price routing on Robinhood Chain: quotes across Uniswap v3, v4 and hooked pools, split routes, Universal Router + Permit2 calldata, hard limits, pinned code hashes and eth_call simulation.",
   "license": "MIT",
@@ -8,10 +8,10 @@
   "homepage": "https://zerohook.trade",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhooktrade/zhook-sdk.git"
+    "url": "git+https://github.com/zerohooktrade/zhook-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/zhooktrade/zhook-sdk/issues"
+    "url": "https://github.com/zerohooktrade/zhook-sdk/issues"
   },
   "keywords": [
     "zerohook",

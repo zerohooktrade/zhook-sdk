@@ -1,5 +1,5 @@
 {
-  "note": "Quotes returned by the live Zerohook app (https://app.zerohook.trade/api/v1/quote). Rebuilding each route with this SDK must give the same calldata byte for byte.",
+  "note": "Quotes returned by the live Zerohook app (https://dapp.zerohook.trade/api/v1/quote). Rebuilding each route with this SDK must give the same calldata byte for byte.",
   "quotes": [
     {
       "request": {
