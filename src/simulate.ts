@@ -113,8 +113,9 @@ export interface UnsignedTx {
 }
 
 /**
- * Calldata for the two approvals of an ERC-20 input: token.approve(Permit2, max) and
- * Permit2.approve(token, router, amount, expiration). Amount defaults to the uint160 max, expiration to 30 days.
+ * Calldata for the two approvals of an ERC-20 input: token.approve(Permit2, amount) and
+ * Permit2.approve(token, router, amount, expiration). Without an amount both are unlimited (uint256 / uint160 max);
+ * expiration defaults to 30 days.
  */
 export function approvalTxs(
   token: Address,
@@ -124,7 +125,11 @@ export function approvalTxs(
   return [
     {
       to: token,
-      data: encodeFunctionData({ abi: erc20Abi, functionName: "approve", args: [RHC.permit2, maxUint256] }),
+      data: encodeFunctionData({
+        abi: erc20Abi,
+        functionName: "approve",
+        args: [RHC.permit2, options.amount ?? maxUint256],
+      }),
       value: "0",
       description: "Allow Permit2 to move this token",
     },

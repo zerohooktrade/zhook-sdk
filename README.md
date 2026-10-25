@@ -64,7 +64,7 @@ ERC-20 input goes through Permit2: the token needs an allowance to Permit2, and 
 const status = await zhook.approvalStatus(wallet, token, amountRaw);
 // status.missing: ("balance" | "erc20-approve-permit2" | "permit2-approve-router")[]
 
-const [approvePermit2, approveRouter] = zhook.approvalTxs(token); // unsigned calldata
+const [approvePermit2, approveRouter] = zhook.approvalTxs(token, { amount: amountRaw }); // unsigned calldata; unlimited without amount
 ```
 
 ### Simulate before signing

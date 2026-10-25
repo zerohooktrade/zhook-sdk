@@ -21,7 +21,8 @@ describe("approvalTxs", () => {
   });
 
   it("takes an exact amount and expiration", () => {
-    const [, b] = approvalTxs(TOKEN, { amount: 5n, expiration: 99 });
+    const [a, b] = approvalTxs(TOKEN, { amount: 5n, expiration: 99 });
+    expect(decodeFunctionData({ abi: erc20Abi, data: a!.data }).args).toEqual([getAddress(RHC.permit2), 5n]);
     expect(decodeFunctionData({ abi: permit2Abi, data: b!.data }).args).toEqual([
       TOKEN,
       getAddress(RHC.universalRouter),
